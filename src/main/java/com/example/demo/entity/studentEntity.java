@@ -17,6 +17,12 @@ public class studentEntity {
     @Email(message = "Email Format is not Valid")
     private String email;
 
+    public void setId(Long id){
+        this.id = id;
+    }
+    public Long getId(){
+        return id;
+    }
     public studentEntity(){
 
     }
