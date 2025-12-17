@@ -1,3 +1,8 @@
 packagecom.example.demo.service;
 
-interface studentService 
+interface studentService {
+
+
+
+    List<studentEntity> getAll
+}
