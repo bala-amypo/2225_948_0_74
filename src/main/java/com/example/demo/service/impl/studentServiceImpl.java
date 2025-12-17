@@ -19,7 +19,7 @@ import org.springframework.beans.factory.annotation.Autowired;
         return repo.findAll();
     }
     public studentEntity addsStudent(studentEntity student){
-        return 
+        return repo.save(student);
     }
 
 }
