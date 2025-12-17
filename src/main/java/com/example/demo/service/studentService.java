@@ -4,5 +4,5 @@ interface studentService {
 
 
 
-    List<studentEntity> getAll
+    List<studentEntity> getAll();
 }
