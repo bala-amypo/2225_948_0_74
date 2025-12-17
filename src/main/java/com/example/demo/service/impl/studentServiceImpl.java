@@ -18,5 +18,8 @@ import org.springframework.beans.factory.annotation.Autowired;
     public List<studentEntity> getAll(){
         return repo.findAll();
     }
-    
+    public studentEntity addsStudent(studentEntity student){
+        return 
+    }
+
 }
