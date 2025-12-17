@@ -8,7 +8,7 @@ import jakarta.validation.constraints.*;
 public class studentEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.INDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @NotBlank(message="Name is not Valid")
