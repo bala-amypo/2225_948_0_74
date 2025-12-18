@@ -11,6 +11,7 @@ import com.example.demo.entity.studentEntity;
 import com.example.demo.service.studentService;
 
 @RestController
+@RequestMapping("/student")
 public class studentController {
 
     @Autowired
@@ -25,4 +26,7 @@ public class studentController {
     public studentEntity addStudent(@Valid @RequestBody studentEntity student) {
         return service.addStudent(student);
     }
+
+    @GetMapping("/get/{}")
+    public studentEntity getbyId()
 }
