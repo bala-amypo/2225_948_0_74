@@ -12,7 +12,7 @@ public interface studentService {
 
     studentEntity getbyId(Long id);
 
-     public studentEnity updateByid(Long id,studentEntity newstu)
+    studentEnity updateByid(Long id,studentEntity newstu)
 
-     studentEntity getbyId(Long id);
+    String deleteby(Long id);
 }
