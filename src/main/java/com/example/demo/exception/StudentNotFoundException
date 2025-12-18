@@ -1,3 +1,8 @@
 package com.example.demo.exception;
 
-import io.swagger
+public class StudentNotFound extends RunTimeException{
+    public StudentNotFoundException(String errMsg){
+          Super(errMsg);
+    }
+  
+}
