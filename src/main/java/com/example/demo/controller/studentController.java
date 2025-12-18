@@ -31,4 +31,7 @@ public class studentController {
     public studentEntity getbyId(PathVariable Long id){
         return service.getId(id);
     }
+
+    @PutMapping("/update/{id}")
+    public studentEnity updateByid(@PathVariable)
 }
