@@ -7,35 +7,35 @@ import org.springframework.web.bind.annotation.*;
 
 import jakarta.validation.Valid;
 
-import com.example.demo.entity.StudentEntity;
-import com.example.demo.service.StudentService;
+import com.example.demo.entity.studentEntity;
+import com.example.demo.service.studentService;
 
 @RestController
 @RequestMapping("/student")
-public class StudentController {
+public class studentController {
 
     @Autowired
-    private StudentService service;
+    private studentService service;
 
     @GetMapping("/getAllStudent")
-    public List<StudentEntity> getAll() {
+    public List<studentEntity> getAll() {
         return service.getAll();
     }
 
     @PostMapping("/add")
-    public StudentEntity addStudent(@Valid @RequestBody StudentEntity student) {
+    public studentEntity addStudent(@Valid @RequestBody studentEntity student) {
         return service.addStudent(student);
     }
 
     @GetMapping("/get/{id}")
-    public StudentEntity getById(@PathVariable Long id) {
-        return service.getId(id);
+    public studentEntity getById(@PathVariable Long id) {
+        return service.getById(id);
     }
 
     @PutMapping("/update/{id}")
-    public StudentEntity updateById(
+    public studentEntity updateById(
             @PathVariable Long id,
-            @Valid @RequestBody StudentEntity newstu) {
+            @Valid @RequestBody studentEntity newstu) {
         return service.updateById(id, newstu);
     }
 

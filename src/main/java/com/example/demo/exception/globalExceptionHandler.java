@@ -1,29 +1,28 @@
 package com.example.demo.exception;
 
-import org.springframework.web.bind.annotation.*;
-import org.springframework.web.bind.MethodArgumentNotValidException;
-import org.springframework.http.ResponseEntity;
-import org.springframework.http.HttpStatus;
-
 import java.util.*;
 
+import org.springframework.http.*;
+import org.springframework.web.bind.MethodArgumentNotValidException;
+import org.springframework.web.bind.annotation.*;
+
 @RestControllerAdvice
-public class GlobalExceptionHandler {
+public class globalExceptionHandler {
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
-    public ResponseEntity<Map<String, String>> handleFieldError(MethodArgumentNotValidException ex) {
+    public ResponseEntity<Map<String, String>> handleValidation(MethodArgumentNotValidException ex) {
 
-        Map<String, String> error = new HashMap<>();
+        Map<String, String> errors = new HashMap<>();
 
         ex.getBindingResult()
           .getFieldErrors()
-          .forEach(err -> error.put(err.getField(), err.getDefaultMessage()));
+          .forEach(err -> errors.put(err.getField(), err.getDefaultMessage()));
 
-        return new ResponseEntity<>(error, HttpStatus.BAD_REQUEST);
+        return new ResponseEntity<>(errors, HttpStatus.BAD_REQUEST);
     }
 
     @ExceptionHandler(StudentNotFoundException.class)
-    public ResponseEntity<String> handleStudentNotValid(StudentNotFoundException ex) {
+    public ResponseEntity<String> handleNotFound(StudentNotFoundException ex) {
         return new ResponseEntity<>(ex.getMessage(), HttpStatus.NOT_FOUND);
     }
 }
