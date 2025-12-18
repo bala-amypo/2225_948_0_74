@@ -5,40 +5,44 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.example.demo.entity.studentEntity;
-import com.example.demo.repository.studentRepo;
-import com.example.demo.service.studentService;
-import com.example.demo.exception.*;
+import com.example.demo.entity.StudentEntity;
+import com.example.demo.repository.StudentRepo;
+import com.example.demo.service.StudentService;
+import com.example.demo.exception.StudentNotFoundException;
 
 @Service
-public class studentServiceImpl implements studentService {
+public class StudentServiceImpl implements StudentService {
 
     @Autowired
-    studentRepo repo;
+    private StudentRepo repo;
 
-   
-    public List<studentEntity> getAll() {
+    @Override
+    public List<StudentEntity> getAll() {
         return repo.findAll();
     }
 
- 
-    public studentEntity addStudent(studentEntity student) {
+    @Override
+    public StudentEntity addStudent(StudentEntity student) {
         return repo.save(student);
     }
 
-    public studentEntity getbyId(Long id){
-        return repo.findById(id).orElseThrow(() -> new StudentNotFoundException("Student ID not Found"));
+    @Override
+    public StudentEntity getById(Long id) {
+        return repo.findById(id)
+                .orElseThrow(() -> new StudentNotFoundException("Student ID not Found"));
     }
-     public studentEntity updateByid(Long id,studentEntity newstu){
-        studentEntity existing = getbyId(id);
-        newstu.setId(existing.getId())
+
+    @Override
+    public StudentEntity updateById(Long id, StudentEntity newstu) {
+        StudentEntity existing = getById(id);
+        newstu.setId(existing.getId());
         return repo.save(newstu);
-     }
-     public String deleteById(Long id){
-        studentEntity data = getbyId(id);
-        repo.deleteBy(id);
-        return "Deleted Successfuly !";
-     }
+    }
 
-
+    @Override
+    public String deleteByID(Long id) {
+        StudentEntity data = getById(id);
+        repo.deleteById(data.getId());
+        return "Deleted Successfully!";
+    }
 }
