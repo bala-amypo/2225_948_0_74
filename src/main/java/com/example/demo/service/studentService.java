@@ -10,4 +10,6 @@ public interface studentService {
     studentEntity addStudent(studentEntity student);
 
     studentEntity getbyId(Long id);
+
+     public studentEnity updateByid(Long id,studentEntity newstu)
 }
