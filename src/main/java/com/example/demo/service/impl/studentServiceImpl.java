@@ -13,7 +13,7 @@ import com.example.demo.service.studentService;
 public class studentServiceImpl implements studentService {
 
     @Autowired
-    private studentRepo repo;
+    studentRepo repo;
 
     @Override
     public List<studentEntity> getAll() {
