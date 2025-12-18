@@ -4,10 +4,11 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
 import jakarta.validation.Valid;
 
-import com.example.demo.entity.*;
-import com.example.demo.service.*;
+import com.example.demo.entity.studentEntity;
+import com.example.demo.service.studentService;
 
 @RestController
 public class studentController {
